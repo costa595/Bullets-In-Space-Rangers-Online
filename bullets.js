@@ -79,6 +79,19 @@ module.exports = {
             this.bulletsArray.push(strayBullet);
         }
     },
+    
+    update: function() {
+        //ВО ВРАГА ИЛИ В МЕНЯ СТРЕЛЬНУЛИ 
+        if(damageObject.attackerLogin != null) { //если кто-то стрелял
+
+            if(damageObject.enemyWasDamaged || damageObject.iWasDamaged) {
+
+                this.launchBullet(damageObject);
+            }
+        }
+
+        this.makeBulletToFollowShip();  
+    },
 
     makeBulletToFollowShip: function() {
 
